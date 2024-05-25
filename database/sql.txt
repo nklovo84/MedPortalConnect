@@ -1,0 +1,157 @@
+-- Author: Pawinee Mahantamak Student Student number 041095866
+-- Assignment2 Web programming
+CREATE DATABASE MedPortalConnect;
+GRANT USAGE ON *.* TO MedPortalConnect@localhost IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON MedPortalConnect.* TO MedPortalConnect@localhost;
+FLUSH PRIVILEGES;
+
+USE MedPortalConnect;
+
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(10) NOT NULL,
+    password VARCHAR(10) NOT NULL,
+    firstname VARCHAR(20) NOT NULL,
+    lastname  VARCHAR(20) NOT NULL,
+    dateofbirth date NOT NULL,
+    email VARCHAR(20) NOT NULL,
+    phonenumber VARCHAR(20) NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    healthcardno VARCHAR(20) NOT NULL,
+    versioncode VARCHAR(20) NOT NULL,
+    cardexpirydate date NOT NULL
+);
+
+INSERT INTO users (username, password,firstname,lastname,dateofbirth,email,phonenumber,gender,healthcardno,versioncode,cardexpirydate) VALUES ('patient1', '123456','Bill','LovoJessi','1989-05-07','kazama@hotamail.com','999-9999','female','12312312121','555','2030-07-07');
+
+
+
+CREATE TABLE notifications (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    action VARCHAR(255) NOT NULL,
+    iconurl VARCHAR(255) NOT NULL,
+    message VARCHAR(255) NOT NULL,
+    notificationdate  date NOT NULL,
+    userid int NOT NULL,
+    FOREIGN KEY (userid) REFERENCES users(id)
+);
+
+INSERT INTO notifications (action, iconurl, message, notificationdate, userid)
+VALUES 
+    ('UserProfileCreation', 'icon_user_profile_creation.png', 'Congratulations! Your profile has been successfully created.', CURDATE(), 1),
+    ('UserProfileCreation', 'icon_user_profile_creation.png', 'Please complete your profile by filling in the required fields.', CURDATE(), 1),
+    ('HealthcareProviderDatabase', 'icon_healthcare_provider.png', 'New healthcare provider added to the database.', CURDATE(), 1),
+    ('HealthcareProviderDatabase', 'icon_healthcare_provider.png', 'Healthcare provider information updated successfully.', CURDATE(), 1),
+    ('WaitList', 'icon_waitlist.png', 'You have been automatically enrolled in the waitlist. We will notify you when an appointment is available.', CURDATE(), 1),
+    ('WaitList', 'icon_waitlist.png', 'Wait List Update: Your position on the waitlist has changed. View details in the app.', CURDATE(), 1),
+    ('LocationBasedMatching', 'icon_location_matching.png', 'You have been matched with a healthcare provider near your preferred location.', CURDATE(), 1),
+    ('HealthcareNewsFeed', 'icon_news_feed.png', 'Stay informed! New healthcare updates available in the news feed.', CURDATE(), 1),
+    ('GeneralHealthcareNewsandUpdates', 'icon_general_news.png', 'Important health alert: Check the general information section for recalls and updates.', CURDATE(), 1),
+    ('Chat', 'icon_chat.png', 'New message from your healthcare provider. Tap to read.', CURDATE(), 1),
+    ('Chat', 'icon_chat.png', 'Appointment confirmed. Check details in your messages.', CURDATE(), 1),
+    ('HealthSurveysandAssessments', 'icon_health_surveys.png', 'New health survey available. Your input is valuable!', CURDATE(), 1),
+    ('AppointmentManagement', 'icon_appointment.png', 'Appointment confirmed for Nov 22 2023 11:00', CURDATE(), 1),
+    ('AppointmentManagement', 'icon_appointment.png', 'Reminder: Friendly reminder: Your appointment is tomorrow at 09:00', CURDATE(), 1),
+    ('MedicationManagement', 'icon_medication.png', 'Reminder: Take your medication: Tylenol, 2 caps, 13:00.', CURDATE(), 1),
+    ('MedicationManagement', 'icon_medication.png', 'Reminder: Refill reminder: Ativan.', CURDATE(), 1);
+
+
+CREATE TABLE news (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    imageUrl VARCHAR(255) NOT NULL,
+    content VARCHAR(255) NOT NULL,
+    newsdate  date NOT NULL
+);
+
+INSERT INTO news (title, imageUrl, content, newsdate)
+VALUES
+    ('Breaking: Ottawa Health Department Launches New Vaccination Campaign', 'image1.jpg', 'The Ottawa Health Department has announced a new vaccination campaign to boost community immunity against prevalent diseases.', '2023-11-21'),
+    ('Local Hospital Celebrates Milestone of Successful Surgeries', 'image2.jpg', 'Ottawa General Hospital commemorates a record number of successful surgeries performed by its dedicated medical team.', '2023-11-22'),
+    ('Innovative Telehealth Services Introduced for Ottawa Residents', 'image3.jpg', 'Residents in Ottawa now have access to cutting-edge telehealth services, providing medical consultations from the comfort of their homes.', '2023-11-23'),
+    ('Healthy Living Workshop: Ottawa Residents Embrace Wellness Tips', 'image4.jpg', 'A recent wellness workshop in Ottawa saw a large turnout as residents learned about maintaining a healthy lifestyle and making positive choices.', '2023-11-24'),
+    ('New Research Reveals Promising Breakthrough in Cancer Treatment', 'image5.jpg', 'Researchers in Ottawa make strides in cancer treatment, offering hope to patients with a groundbreaking discovery in the field of oncology.', '2023-11-25'),
+    ('Community Fitness Challenge Takes Ottawa by Storm', 'image6.jpg', 'Ottawa residents participate in a city-wide fitness challenge, promoting physical activity and community well-being.', '2023-11-26'),
+    ('Local Nutritionist Shares Tips for a Balanced Diet in Winter', 'image7.jpg', 'As winter approaches, a local nutritionist in Ottawa offers advice on maintaining a balanced and nutritious diet during the colder months.', '2023-11-27'),
+    ('Mental Health Awareness Campaign Gains Traction in Ottawa', 'image8.jpg', 'Ottawa residents rally behind a mental health awareness campaign, shedding light on the importance of mental well-being and support services.', '2023-11-28'),
+    ('Ottawa Schools Implement Health Education Curriculum Overhaul', 'image9.jpg', 'Schools in Ottawa revamp their health education curriculum, introducing comprehensive programs to educate students on physical and mental well-being.', '2023-11-29'),
+    ('Local Gym Offers Free Fitness Classes to Combat Sedentary Lifestyles', 'image10.jpg', 'In a bid to promote active living, a fitness center in Ottawa provides free fitness classes to encourage residents to combat sedentary lifestyles.', '2023-11-30');
+
+
+
+CREATE TABLE locations(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    locationname VARCHAR(50) NOT NULL
+);
+CREATE TABLE providers(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    providername VARCHAR(50) NOT NULL,
+    locationid int NOT NULL,
+  FOREIGN KEY (locationid) REFERENCES locations(id)
+);
+
+CREATE TABLE waitlist_preferences (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    locationid int NOT NULL,
+    userid int NOT NULL,
+    FOREIGN KEY (userid) REFERENCES users(id),
+    FOREIGN KEY (locationid) REFERENCES locations(id)
+);
+
+CREATE TABLE user_waitlist (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    providerid int NOT NULL,
+    position int NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    estimatewaittime int NOT NULL, 
+    userid int NOT NULL,
+    FOREIGN KEY (providerid) REFERENCES providers(id),
+    FOREIGN KEY (userid) REFERENCES users(id)
+);
+
+INSERT INTO locations (locationname) VALUES
+    ('Downtown Ottawa'),
+    ('East Ottawa'),
+    ('West Ottawa'),
+    ('South Ottawa'),
+    ('North Ottawa');
+
+
+INSERT INTO providers (providername, locationid) VALUES
+    ('Ottawa Wellness Center', 1),
+    ('Maple Ridge Medical Clinic', 1),
+    ('Riverside Family Health', 1),
+    ('Capital City Health Associates', 1),
+    ('Ottawa General Hospital', 1),
+    ('Green Valley Dental Care', 2),
+    ('Central Ottawa Pediatrics', 2),
+    ('Riverside Orthopedic Clinic', 2),
+    ('Ottawa Women''s Health Center', 2),
+    ('Pineview Mental Health Services', 2),
+    ('Harmony Chiropractic Ottawa', 3),
+    ('Riverside Cardiology Associates',3),
+    ('Ottawa Dental Care Group', 3),
+    ('Blossom Family Medicine', 3),
+    ('Ottawa Premium Hospital', 1),
+    ('Ottawa Integrative Health', 4),
+    ('Lakeside Physiotherapy Center', 4),
+    ('Capital City Dermatology', 4),
+    ('Pinhey Health Services', 4),
+    ('Blossom Care', 4),
+    ('Ottawa Vision Care Clinic', 5),
+    ('Riverside Pharmacy and Wellness', 5),
+    ('Ottawa Care Centre', 5),
+    ('Riverside Care', 5),
+    ('Good Care', 5),
+    ('Maple Leaf Urgent Care', 5);
+
+
+INSERT INTO waitlist_preferences (locationid, userid) VALUES
+    (1, 1);
+
+INSERT INTO user_waitlist (providerid, position, status, estimatewaittime, userid) VALUES
+    (1, 23, 'Pending', 10, 1),
+    (2, 40, 'Pending', 90, 1),
+    (3, 30, 'Pending', 20, 1);
+

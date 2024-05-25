@@ -1,0 +1,450 @@
+/*
+    Author: Nubia Lovo Student Student number 041093757 
+    Course: CST8285  
+    Lab Section: 331
+    Assesment: Assignment2 
+    File Name: register.css
+    Professor: Malek El-Kouzi
+    Date Created: Nov 19, 2023
+    Date Modified: Nov 19, 2023
+    Due Date: Nov 26, 2023
+    Version: 1.0
+    Description: A css file for A webpage
+*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: #1189AA;
+    color: #1189AA;
+    padding: 25px;
+    text-align: right;
+}
+
+.logo {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.logo img {
+    width: 250px;
+    height: 75px;
+    border-bottom: #CFE4EE 2px solid;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.icon {
+    margin-left: 15px;
+}
+
+.icon img {
+    width: 25px;
+    height: 25px;
+}
+
+aside {
+    background-color: aliceblue;
+    color: #1189AA;
+    border-right: #CFE4EE 2px solid;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar {
+    padding-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin-bottom: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1189AA;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #CFE4EE;
+}
+
+main {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+h1 {
+    color: #1189AA;
+}
+
+
+.featured-services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.featured-services li {
+    margin-bottom: 10px;
+    color: #1189AA;
+}
+
+.call-to-action {
+    background-color: #CFE4EE;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #1189AA;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #64B5AC;
+}
+
+/*notification*/
+.notification-container {
+    max-width: 900;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.notification-icon {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.notification strong {
+    color: #333;
+}
+
+.notification-date {
+    color: grey;
+    font-size: 0.8em;
+}
+
+/*user profile*/
+#user-profile-container header {
+    background-color: #64B5AC;
+    padding: 10px;
+}
+
+#user-profile-container header .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+#user-profile-container aside {
+    background-color: #1189AA;
+    color: white;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+#user-profile-container main {
+    padding: 20px;
+}
+
+#user-profile-container main h1 {
+    color: #1189AA;
+}
+
+#user-profile-container form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#user-profile-container fieldset {
+    border: 1px solid #CFE4EE;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+#user-profile-container legend {
+    font-weight: bold;
+    color: #1189AA;
+}
+
+#user-profile-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #1189AA;
+}
+
+#user-profile-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#user-profile-container input[type="submit"] {
+    background-color: #1189AA;
+    color: white;
+    cursor: pointer;
+}
+
+#user-profile-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/*news*/
+.news-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.news-card {
+    width: calc(25% - 20px);
+    background-color: #F9F3DD;
+    color: #1189AA;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.news-card:hover {
+    transform: scale(1.05);
+}
+
+.news-image {
+    height: 150px;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 15px;
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.news-date {
+    font-size: 14px;
+}
+
+/*waitlist*/
+.waitlist-container {
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.waitlist-container h2 {
+    color: #1189AA;
+}
+
+.waitlist-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.waitlist-container ul li {
+    margin-bottom: 10px;
+}
+
+.waitlist-container label {
+    display: block;
+    margin-top: 10px;
+    color: #1189AA;
+}
+
+.waitlist-container input,
+.waitlist-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.waitlist-container button {
+    background-color: #1189AA;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.waitlist-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.waitlist-container th,
+.waitlist-container td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.waitlist-container th {
+    background-color: #1189AA;
+    color: #fff;
+}
+
+.waitlist-container .notifications {
+    display: flex;
+    justify-content: space-between;
+}
+
+.waitlist-location-input {
+    display: flex;
+    align-items: center;
+}
+
+.waitlist-location-input label {
+    margin-right: 10px;
+}
+
+.waitlist-location-input input {
+    margin-right: 10px;
+}
+
+.waitlist-location-input button {
+    background-color: #1189AA;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.recent-notification-item {
+    background-color: #F9F3DD;
+    color: #1189AA;
+}
+
+#provider-dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#providerSelect {
+    padding: 10px;
+    border: 1px solid #1189AA;
+    border-radius: 5px;
+    background-color: #F9F3DD;
+    color: #1189AA;
+}
+
+#providerSelect option {
+    background-color: #F9F3DD;
+    color: #1189AA;
+}
+
+#providerSelect option:hover {
+    background-color: #CFE4EE;
+}
+
+#location-dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#locationSelect {
+    padding: 10px;
+    border: 1px solid #64B5AC;
+    border-radius: 5px;
+    background-color: #F9F3DD;
+    color: #64B5AC;
+}
+
+#locationSelect option {
+    background-color: #F9F3DD;
+    color: #64B5AC;
+}
+
+#locationSelect option:hover {
+    background-color: #CFE4EE;
+}
+
+#providerFilter {
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.add-button-container {
+    text-align: right;
+   margin-right: 35px;
+}

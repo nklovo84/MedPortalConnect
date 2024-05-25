@@ -1,0 +1,48 @@
+<!-- 
+    Author: Nubia Lovo Student number 041093757 
+    Course: CST8285  
+    Lab Section: 331
+    Assesment: Assignment2
+    File Name: login.html
+    Professor: Malek Al-Kouzi
+    Date Created: Nov 17, 2023
+    Date Modified: Nov 22, 2023
+    Due Date: Nov 26, 2023
+    Version: 1.0
+    Description: A login page-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nubia Lovo">
+    <title>MedPortal Connect</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../scripts/script.js"></script>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-image">
+            <img src="/images/login.jpeg" alt="Medical Image">
+        </div>
+        <div class="login-form">
+            <h1>Welcome to the MedPortal Connect</h1>
+            <form action="../server/dao/loginDAO.php" method="post" onsubmit="return validateLogin()">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

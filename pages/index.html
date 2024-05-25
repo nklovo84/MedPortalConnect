@@ -1,0 +1,73 @@
+<!-- 
+    Author: Nubia Lovo Student number 041093757 
+    Course: CST8285  
+    Lab Section: 331
+    Assesment: Assignment2
+    File Name: index.html
+    Professor: Malek Al-Kouzi
+    Date Created: Nov 17, 2023
+    Date Modified: Nov 22, 2023
+    Due Date: Nov 26, 2023
+    Version: 1.0
+    Description: A index page-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nubia Lovo">
+    <title>MedPortal Connect</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/scripts/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <div onclick="redirectToNotificationPage()" class="icon"><img src="/images/notification.png"
+                    alt="Notifications Icon"></div>
+            <div onclick="redirectToUserProfilePage()" class="icon"><img src="/images/user.png" alt="Profile Icon">
+            </div>
+
+        </div>
+    </header>
+
+    <aside>
+        <div class="sidebar">
+            <div class="logo"><img src="/images/logo.png" alt="Health Portal Logo"></div>
+
+            <nav>
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../server/pages/news.php">News Feed</a></li>
+                    <li><a href="../server/pages/waitlist.php">Waitlist</a></li>
+                    <li> <a href="../server/logout.php">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <main>
+        <h1>Welcome to MedPortal Connect</h1>
+        <p>Your personalized healthcare portal for managing appointments, medications, and staying informed about health
+            news.</p>
+        <div class="featured-services">
+            <h2>Featured Services</h2>
+            <ul>
+                <li>Appointment Management</li>
+                <li>Medication Management</li>
+                <li>Emergency Contact Management</li>
+                <li>Electronic Health Records</li>
+                <li>News Feed</li>
+            </ul>
+        </div>
+        <div class="call-to-action">
+            <p>Ready to take control of your health journey?</p>
+            <a href="../server/pages/waitlist.php" class="cta-button">Join the Waitlist</a>
+        </div>
+    </main>
+</body>
+
+</html>
